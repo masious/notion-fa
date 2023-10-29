@@ -498,6 +498,9 @@ a {
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.06), 0 1px 1px 0 rgba(0, 0, 0, 0.1),
     0 6px 17px 0 rgba(0, 0, 0, 0.23);
 }
+.icons input[type="checkbox"] + label[for="notion"] {
+  background-image: url(/images/notion-deactive.png);
+}
 .icons input[type="checkbox"] + label[for="twitter"] {
   background-image: url(/images/twitter-deactive.png);
 }

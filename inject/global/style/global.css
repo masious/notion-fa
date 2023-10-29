@@ -132,27 +132,27 @@
 :root {
   --font: Vazir;
 }
-html body h1.global-rtl,
-html body h2.global-rtl,
-html body h3.global-rtl,
-html body h4.global-rtl,
-html body h5.global-rtl,
-html body h6.global-rtl,
-html body p.global-rtl,
-html body li.global-rtl,
-html body td.global-rtl,
-html body tr.global-rtl,
-html body pre.global-rtl,
-html body font.global-rtl,
-html body blockquote.global-rtl,
-html body small.global-rtl,
-html body center.global-rtl,
-html body span.global-rtl,
-html body a.global-rtl,
-html body div.global-rtl,
-html body strong.global-rtl {
+html body h1[global-rtl],
+html body h2[global-rtl],
+html body h3[global-rtl],
+html body h4[global-rtl],
+html body h5[global-rtl],
+html body h6[global-rtl],
+html body p[global-rtl],
+html body li[global-rtl],
+html body td[global-rtl],
+html body tr[global-rtl],
+html body pre[global-rtl],
+html body font[global-rtl],
+html body blockquote[global-rtl],
+html body small[global-rtl],
+html body center[global-rtl],
+html body span[global-rtl],
+html body a[global-rtl],
+html body div[global-rtl],
+html body strong[global-rtl] {
   font-family: var(--font), sans-serif !important;
 }
-html body.global-rtl {
+html body[global-rtl] {
   font-family: var(--font), sans-serif !important;
 }

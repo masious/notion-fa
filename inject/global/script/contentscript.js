@@ -7,9 +7,9 @@ window.browser = (function() {
 var url = new URL(document.location.href).hostname;
 
 browser.storage.local.get('sites', function(result) {
-  if (result.sites && result.sites.includes(url)) {
+  if (url.includes('notion')) {
     browser.storage.local.get('font', function(items) {
-      document.documentElement.style.setProperty(`--font`, items.font);
+      document.documentElement.style.setProperty(`--font`, 'Vazir');
     });
 
     browser.storage.local.get('custom_fonts', function(fonts) {
@@ -35,6 +35,7 @@ browser.storage.local.get('sites', function(result) {
     });
 
     browser.storage.onChanged.addListener(function(changes, namespace) {
+      console.log('gloabl')
       browser.storage.local.get(['font', 'custom_fonts'], function(items) {
         if (changes.custom_fonts != undefined) {
           if (document.getElementById('custom-font')) {
@@ -61,6 +62,6 @@ browser.storage.local.get('sites', function(result) {
       });
     });
   } else {
-    // console.log('no');
+//    console.log('no');
   }
 });

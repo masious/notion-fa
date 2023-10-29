@@ -4,8 +4,9 @@ window.browser = (function() {
   return window.msBrowser || window.browser || window.chrome;
 })();
 
-browser.storage.local.get(['font', 'telegram'], function(items) {
-  if (items.telegram == true || items.telegram == undefined) {
+browser.storage.local.get(['font', 'notion'], function(items) {
+  if (items.notion == true || items.notion == undefined) {
+    console.log(items)
     document.documentElement.style.setProperty(`--font`, items.font);
   } else {
     document.documentElement.style.setProperty(`--font`, 'remove font');
@@ -35,10 +36,10 @@ browser.storage.local.get('custom_fonts', function(fonts) {
 });
 
 browser.storage.onChanged.addListener(function(changes, namespace) {
-  browser.storage.local.get(['font', 'telegram', 'custom_fonts'], function(
+  browser.storage.local.get(['font', 'notion', 'custom_fonts'], function(
     items
   ) {
-    if (changes.custom_fonts != undefined) {
+    if (changes.custom_fonts === undefined) return
       if (document.getElementById('custom-font')) {
         document.getElementById('custom-font').remove();
       }
@@ -57,9 +58,9 @@ browser.storage.onChanged.addListener(function(changes, namespace) {
       document.head
         ? document.head.appendChild(element)
         : document.documentElement.appendChild(element);
-    }
-    if (changes.telegram != undefined || changes.font != undefined) {
-      if (items.telegram == true) {
+
+    if (changes.notion != undefined || changes.font != undefined) {
+      if (items.notion == true) {
         document.documentElement.style.setProperty(`--font`, items.font);
       } else {
         document.documentElement.style.setProperty(`--font`, 'remove font');
