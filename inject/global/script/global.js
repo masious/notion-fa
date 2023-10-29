@@ -3,7 +3,7 @@ window.browser = (function() {
 })();
 var obsRun = false;
 
-const patt = /[\u0600-\u06FF]|[\u05D0-\u05EA]|[\u0620-\u063F]|[\u0641-\u064A]|[\u0675-\u06D3]|[\u0710-\u071C]|[\u071E-\u072F]|[\u074E-\u077F]|[\u08A0-\u08AC]|[\u08AE-\u08B4]|[\u07C1-\u07C9]|[\u07CC-\u07E9]/g;
+const patt = /^[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9\u06AF\u06BE\u06CC\u06F0-\u06F9\u060C\u061B\u061F\u0640\u066A\u066B\u066C\u0629\u0643\u0649-\u064B\u064D\u06D5\u0660-\u0669\u0020\u2000-\u200F\u2028-\u202F]+$/
 
 var url = new URL(document.location.href).hostname;
 browser.storage.local.get('sites', function(result) {
@@ -12,6 +12,7 @@ browser.storage.local.get('sites', function(result) {
       if (!patt.test(post_article.innerText)) return;
       post_article.style.fontFamily = 'Vazir'
       post_article.style.direction = 'rtl'
+      post_article.style.textAlign = 'right'
     };
 
     let run_on_page = () => {
@@ -32,11 +33,11 @@ browser.storage.local.get('sites', function(result) {
     });
 
     browser.storage.onChanged.addListener(function(changes, namespace) {
-      const patt = /[\u0600-\u06FF]|[\u05D0-\u05EA]|[\u0620-\u063F]|[\u0641-\u064A]|[\u0675-\u06D3]|[\u0710-\u071C]|[\u071E-\u072F]|[\u074E-\u077F]|[\u08A0-\u08AC]|[\u08AE-\u08B4]|[\u07C1-\u07C9]|[\u07CC-\u07E9]/g;
       let run_against_article = post_article => {
         if (!patt.test(post_article.innerText)) return;
         post_article.style.fontFamily = 'Vazir'
         post_article.style.direction = 'rtl'
+        post_article.style.textAlign = 'right'
       };
 
       let run_on_page = () => {
